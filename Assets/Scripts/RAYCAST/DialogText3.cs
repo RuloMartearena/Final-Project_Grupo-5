@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 //Adicionar
 using UnityEngine.UI;
 using TMPro;
@@ -10,8 +11,8 @@ public class DialogText3 : MonoBehaviour
     public TextMeshProUGUI dialogsTexts;
     public bool activeChat;
     private CamaraInteractiveRAYCAST hit;
-    //Atributos del Script
 
+    //Atributos del Script
     private NpcVendedor propsBuy;
 
     //creamos un array de lineas(estos contendran los dialogos a mostrar)
@@ -26,25 +27,21 @@ public class DialogText3 : MonoBehaviour
     {
         props = FindObjectOfType<Player>();
         dialogsTexts.text = string.Empty;
-        
         propsBuy = FindObjectOfType<NpcVendedor>();
         hit = FindObjectOfType<CamaraInteractiveRAYCAST>();
-
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (activeChat)
         {
-            
             StartDialogue();
             activeChat = false;
         }
-        if (Input.GetKeyDown(KeyCode.X) && hit.hit.transform.name == "Vendedor")// si se oprime X
+
+        if (Input.GetKeyDown(KeyCode.X) && hit.hit.transform.name == "Vendedor") // si se oprime X
         {
-            if(dialogsTexts.text == lineas[index])//si el texto es pantalla esta completo
+            if(dialogsTexts.text == lineas[index]) //si el texto es pantalla esta completo
             { 
                 nextLine();                        // muestra el siguiente texto
             }
@@ -55,6 +52,7 @@ public class DialogText3 : MonoBehaviour
             }
         }
     }
+
     //Cuando se llame este metodo se activara la corrutina
     private void StartDialogue()
     {
@@ -64,13 +62,13 @@ public class DialogText3 : MonoBehaviour
 
     IEnumerator EscribirLinea()
     {
-        foreach (var letra in lineas[index].ToCharArray())// Para cada letra dentro de nuestras lineas de texto
+        foreach (var letra in lineas[index].ToCharArray()) // Para cada letra dentro de nuestras lineas de texto
         {
-            dialogsTexts.text += letra;                    //se añade a nuestro cuadro de texto 
-            yield return new WaitForSeconds(textSpeed);     //cada cierto tiempo
-
+            dialogsTexts.text += letra;                    //se agrega a nuestro cuadro de texto 
+            yield return new WaitForSeconds(textSpeed);    //cada cierto tiempo
         }
     }
+
     public void nextLine()
     {
         if(index < lineas.Length - 1) // cuando quedan lineas por escribir
@@ -82,8 +80,7 @@ public class DialogText3 : MonoBehaviour
         else
         {
             propsBuy.buyActive = true;
-            gameObject.SetActive(false);// se desactiva el cuadro de dialogo al que esta vinculado este script
-
+            gameObject.SetActive(false); // se desactiva el cuadro de dialogo al que esta vinculado este script
         }
     }
 }
