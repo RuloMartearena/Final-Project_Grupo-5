@@ -7,3 +7,4 @@ El ejecutable se subirá a un repositorio con el mismo nombre + Ejecutable
 
 ## Dirección del video de exposición
 
+https://drive.google.com/drive/folders/12wNL4WITjWPTvu5v457qz-hA1Fol-X3J?usp=share_link
