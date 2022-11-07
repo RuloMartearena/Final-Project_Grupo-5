@@ -9,7 +9,7 @@ using TMPro;
 public class DialogText3 : MonoBehaviour
 {
     public TextMeshProUGUI dialogsTexts;
-    public bool activeChat;
+    public bool activeChat; // --- chat activo ---
     private CamaraInteractiveRAYCAST hit;
 
     //Atributos del Script
@@ -79,7 +79,7 @@ public class DialogText3 : MonoBehaviour
         }
         else
         {
-            propsBuy.buyActive = true;
+            propsBuy.buyActive = true; // --- setea el valor de buyActive a true ---
             gameObject.SetActive(false); // se desactiva el cuadro de dialogo al que esta vinculado este script
         }
     }
